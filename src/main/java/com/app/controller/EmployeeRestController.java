@@ -23,6 +23,12 @@ public class EmployeeRestController {
             return employeeService.create(employeeDTO);
         }
 
+    @PostMapping("/createall")
+    public List<EmployeeDTO> savaAll(@RequestBody List<EmployeeDTO> dtoList)
+        {
+            return employeeService.createAll(dtoList);
+        }
+
     @GetMapping("/{id}")
     public EmployeeDTO getEmployeeBYId(@PathVariable Long id)
         {

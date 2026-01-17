@@ -74,4 +74,23 @@ public class EmployeeServiceImp implements EmployeeService{
         return mapToDTO(employeeRepository.save(employee));
     }
 
+    @Override
+    public List<EmployeeDTO> createAll(List<EmployeeDTO> dtos) {
+
+        List<Employee> employees = dtos.stream()
+                .map(dto -> new Employee(
+                        dto.name(),
+                        dto.email(),
+                        dto.salary()
+                ))
+                .toList();
+
+        List<Employee> savedEmployees = employeeRepository.saveAll(employees);
+
+        return savedEmployees.stream()
+                .map(this::mapToDTO)
+                .toList();
+    }
+
+
 }
