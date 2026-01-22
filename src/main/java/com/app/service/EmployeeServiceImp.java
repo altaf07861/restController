@@ -18,7 +18,7 @@ public class EmployeeServiceImp implements EmployeeService{
 
     private EmployeeDTO mapToDTO(Employee employee)
         {
-            return new EmployeeDTO(employee.getName(),employee.getEmail(),employee.getSalary());
+            return new EmployeeDTO(employee.getId(),employee.getName(),employee.getEmail(),employee.getSalary());
         }
 
     @Override
